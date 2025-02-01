@@ -26,9 +26,9 @@ install_miniconda() {
     eval "$($HOME/miniconda/bin/conda shell.bash hook)" || { echo "Error: Failed to initialize Miniconda."; return 1; }
 
     # Add Miniconda to the PATH in the current shell session
-    export PATH="$HOME/miniconda/bin:$PATH"
-
-    echo "Miniconda installation completed successfully."
+    echo 'export PATH="/$HOME/miniconda/bin:$PATH"' >> ~/.bashrc
+    source ~/.bashrc
+    conda --version && echo "Miniconda installation completed successfully."
 }
 
 install_aws_cli() {
